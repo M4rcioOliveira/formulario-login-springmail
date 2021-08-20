@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Título da página</title>
+    <meta charset="utf-8">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="code.js"></script>
+
+
+
+</head>
+
+<body background="code.png">
+
+
+
+<script>
+
+
+$(document).ready(function () {
+
+        alert("Bem Vindo(a) 😄")
+
+});
+
+</script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            let email = localStorage.getItem('email');
+
+
+            var urlStr = "http://localhost:8070/sendOk/" + email;
+
+
+            $.ajax({
+
+                url: urlStr,
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+
+                    
+
+                },
+
+                error: function (erro) {
+                    console.log(erro);
+                }
+
+            });
+
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>

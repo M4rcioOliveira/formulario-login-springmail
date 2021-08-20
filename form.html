@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="code.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div id="container">
+    
+
+        <form id="form">
+          
+
+          <p id="createAccount">
+            Create Account
+          </p>
+       
+
+            <div id="divEmail">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input class="form-control" type="email" id="email" placeholder="example@email.com" aria-describedby="emailHelp">
+
+            </div>
+
+            <div id="divSenha">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input class="form-control" type="password" id="password" placeholder="Password">
+            </div>
+
+            <p>
+
+                <a href="url">Login in</a>
+
+            </p>
+
+            <div id="divButton">
+
+                <button type="button" class="btn btn-success" id="click" onclick="load()" >Sign Up </button>
+    
+            </div>
+
+
+            <div id="divLoader">
+              <div class="c-loader">
+
+              
+              </div>
+            </div>
+      
+
+             <p id="orCreate">or sign up using </p> 
+
+            <div id="divIcon">
+              <img src="gmail.png" alt="icon-gmail" class="divIcon">
+              <img src="facebook.png" alt="icon-facebook" class="divIcon">
+              <img src="linkedin.png" alt="icon-gmail" class="divIcon">
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $("#click").click(function() {
+
+                var email = $("#email").val();
+                var password = $("#password").val();
+
+                var urlStr = "http://localhost:8070/create/" + email + "/" + password;
+
+
+
+                localStorage.setItem('email', email)
+
+                $.ajax({
+
+                    url: urlStr,
+                    type: "post",
+                    dataType: "json",
+                    success: function(data) {
+
+
+
+
+                    },
+
+                    error: function(erro) {
+                        console.log(erro);
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+
+<script>
+
+  $( "#click").click(function() {
+  $("#divButton").css("display","none");
+  $(".c-loader").css("display","block");
+
+});
+
+</script>
+
+
+<script>
+
+
+function load() {
+    setTimeout(function(){ 
+
+      window.location.href = "confirmation.html";
+
+}, 2000);
+}
+
+
+
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

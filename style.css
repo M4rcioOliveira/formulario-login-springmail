@@ -1,0 +1,99 @@
+#container {
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-style: ridge;
+}
+
+body {
+    margin: 0px;
+}
+
+#iconLogin {
+    height: 280px;
+    border-radius: 20px;
+}
+
+#divEmail {}
+
+#divSenha {}
+
+#form {
+
+    padding-top: 70px;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-bottom: 30px;
+    border-style: inset;
+    border-radius: 20px;
+    
+
+}
+
+#divButton {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#divIcon{
+    margin-top: -7px;
+    text-align: center;
+}
+
+.divIcon{
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+#orCreate{
+    margin-top: 10px;
+    text-align: center;
+}
+
+#createAccount{
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-size: x-large;
+}
+
+
+#accountCreated{
+
+    margin-top: -30px;
+    margin-bottom: 30px;
+    color: green;
+    font-size: 20px;
+
+}
+
+
+.c-loader {
+    animation: is-rotating 1s infinite;
+    border: 6px solid #dad6d6;
+    border-radius: 50%;
+    border-top-color: #51d4db;
+    height: 50px;
+    width: 50px;
+    display: none;
+  }
+  
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  #divLoader{
+    padding-left: 70px;
+  }
+
+  #divLoaderConfirmation{
+    padding-left: 120px;
+  }
+
+  

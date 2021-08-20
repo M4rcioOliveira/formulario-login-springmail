@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="code.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            let email = localStorage.getItem('email');
+
+
+            var urlStr = "http://localhost:8070/send/" + email;
+
+
+            $.ajax({
+
+                url: urlStr,
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+
+                },
+
+                error: function (erro) {
+                    console.log(erro);
+                }
+
+            });
+
+        });
+
+
+    </script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#click").click(function () {
+
+                let email = localStorage.getItem('email');
+                var code = $("#code").val();
+
+
+                var urlStr = "http://localhost:8070/confirmation/" + code + "/" + email;
+
+
+                $.ajax({
+
+                    url: urlStr,
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+
+                        if (data == "invalido") {
+                            alert("Código Inválido 🙁")
+                        } else {
+
+                            redirecionar();
+
+                        }
+
+
+                    },
+
+                    error: function (erro) {
+                        console.log(erro);
+                    }
+
+                });
+
+            });
+        });
+
+
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <form id="form">
+
+
+            <p id="accountCreated">
+                account created successfully
+            </p>
+
+            <p id="createAccount">
+                Confirmation
+            </p>
+
+            <div id="divEmail">
+                <label for="exampleFormControlInput1" class="form-label">Code</label>
+                <input class="form-control" type="number" id="code" placeholder="8 digit code ">
+                <p>
+                    enter the 8-digit code sent in your email
+                </p>
+
+            </div>
+
+            <div id="divButton">
+
+                <button type="button" class="btn btn-success" id="click">Confirm</button>
+
+            </div>
+
+            <div id="divLoaderConfirmation">
+                <div class="c-loader">
+  
+                
+                </div>
+              </div>
+
+        </form>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
